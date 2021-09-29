@@ -1,0 +1,124 @@
+<p>PLAYER ENTRY TERMINAL</p>
+
+
+<script>
+function myFunction() {
+  document.getElementById("myForm").submit();
+}
+</script>
+
+<body onload=load()>
+<div id="myform">
+<script type="text/javascript" src="sprint-2-frontend-player-entry.js"></script>
+
+
+<form>
+  <label for="fname">Player 1</label>
+  <input type="hidden" id="name" method=POST >
+  <input type="text" id="age" name="player1ID" placeholder="Player 1 ID">
+  <input type="button" id="add" value="Add" onclick=Javascript:addRow()>
+  <input type="button" id="addg" value="Addg" onclick=Javascript:addRowGreen()> 
+  <br>
+</form>
+
+
+</div>
+
+<div class = "red-form" id="mydata">
+  <div id="mydata">
+    <b>Current data in the system ...</b>
+    <table id="myTableData"  border="1" cellpadding="2">
+        <tr>
+            <td>&nbsp;</td>
+            <td><b>Name</b></td>
+            <td><b>ID</b></td>
+        </tr>
+    </table>
+    &nbsp;
+ </div>
+
+
+
+ <div class = "green-form" id="mydatagreen">
+  <div id="mydatagreen">
+    <b>Current data in the system ...</b>
+    <table id="myTableDataGreen"  border="1" cellpadding="2">
+        <tr>
+            <td>&nbsp;</td>
+            <td><b>Name</b></td>
+            <td><b>ID</b></td>
+        </tr>
+    </table>
+    &nbsp;
+ </div>
+
+ 
+  <!-- <div class="red-form">
+    
+
+
+
+
+      <div class = "form-header">RED TEAM</div>
+      
+      <form action="new-page.html">
+      <label for="fname">Player 1</label>
+      <input type="text" id="player1ID" name="player1ID" placeholder="Player 1 ID">
+      <input type="text" id="player1codename" name="player1codename" placeholder="Player 1 CodeName...">
+      <input type="submit" value="Submit" display: hidden> 
+      <br>
+      </form>
+      
+      <form action="new-page.html">
+      <label for="lname">Player 2</label>
+      <input type="text" id="player2ID" name="player2ID" placeholder="Player 2 ID">
+      <input type="text" id="player2codename" name="player2codename" placeholder="Player 2 CodeName...">
+      <input type="submit" value="Submit" display: hidden> 
+      <br>
+      </form>
+      
+      <form action="new-page.html">
+      <label for="lname">Player 3</label>
+      <input type="text" id="player3ID" name="player3ID" placeholder="Player 3 ID">
+      <input type="text" id="player3codename" name="player3codename" placeholder="Player 3 CodeName...">
+      <input type="submit" value="Submit" display: hidden>   
+      <br>
+      </form>
+  </div>
+
+
+  <div class="green-form">
+
+    <div class = "form-header">GREEN TEAM</div>
+      
+      <form action="new-page.html">
+      <label for="fname">Player 1</label>
+      <input type="text" id="player1ID" name="player1ID" placeholder="Player 1 ID">
+      <input type="text" id="player1codename" name="player1codename" placeholder="Player 1 CodeName...">
+      <input type="submit" value="Submit" display: hidden> 
+      <br>
+      </form>
+      
+      <form action="new-page.html">
+      <label for="lname">Player 2</label>
+      <input type="text" id="player2ID" name="player2ID" placeholder="Player 2 ID">
+      <input type="text" id="player2codename" name="player2codename" placeholder="Player 2 CodeName...">
+      <input type="submit" value="Submit" display: hidden> 
+      <br>
+      </form>
+      
+      <form action="new-page.html">
+      <label for="lname">Player 3</label>
+      <input type="text" id="player3ID" name="player3ID" placeholder="Player 3 ID">
+      <input type="text" id="player3codename" name="player3codename" placeholder="Player 3 CodeName...">
+      <input type="submit" value="Submit" display: hidden>   
+      <br>
+      </form>
+  </div>
+  -->
+
+
+
+<head>
+    <link rel="stylesheet" href="sprint-2-frontend-player-entry.css">
+</head>
