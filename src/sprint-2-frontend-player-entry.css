@@ -1,6 +1,6 @@
 body {
     background-color: rgb(4, 35, 39);
-    color: rgb(218, 214, 214);
+    color: rgb(14, 0, 0);
   }
   h1 {
     color: blue;
@@ -35,17 +35,7 @@ body {
     width:300;
   }
   
-  /* input[type=submit] {
-    width: 100%;
-    background-color: #000000;
-    color: rgb(255, 255, 255);
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  } */
-  
+
   input[type=submit]:hover {
     background-color: #45a049;
   }
@@ -76,10 +66,9 @@ body {
     align-content: center
   }
 
+  input[type="button"] {
+    width: 200px; /* width of image */
+    height: 50px; /* height of image */
+    border: 0;
+}
 
-  /* #button {
-    width: 6em;
-    border: 2px solid green;
-    background: #ffe;
-    border-radius: 5px;
-} */
