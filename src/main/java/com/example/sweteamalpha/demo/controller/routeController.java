@@ -2,14 +2,15 @@ package com.example.sweteamalpha.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.yaml.snakeyaml.events.Event;
 
+
+// Serving our static web pages
 @Controller
-public class GreetingController {
+public class routeController {
     String appName;
 
     @GetMapping("/")
@@ -22,4 +23,5 @@ public class GreetingController {
         model.addAttribute("appName", appName);
         return "sprint-2-frontend-player-entry";
     }
+
 }
