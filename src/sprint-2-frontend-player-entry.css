@@ -1,6 +1,6 @@
 body {
     background-color: rgb(4, 35, 39);
-    color: rgb(0, 0, 0);
+    color: rgb(14, 0, 0);
   }
   h1 {
     color: blue;
@@ -8,10 +8,10 @@ body {
   p {
     color: red;
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
   }
-
-  div.rf {
+  
+  div.form-header {
     color: rgb(0, 0, 0);
     font-size: 35px;
     display:flex;
@@ -21,13 +21,6 @@ body {
 
   body {
     font-family: Arial;
-	
-  }
-  
-  label { 
-  width: 500px; 
-  height: 250px;
- 
   }
   
   input[type=text], select {
@@ -39,19 +32,10 @@ body {
     border-radius: 4px;
     box-sizing: border-box;
     text-align: center;
+    width:300;
   }
   
-  input[type=submit] {
-    width: 100%;
-    background-color: #000000;
-    color: rgb(255, 255, 255);
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
+
   input[type=submit]:hover {
     background-color: #45a049;
   }
@@ -62,28 +46,29 @@ body {
     padding: 20px;
     width: 45%;
     position: absolute;
-    top: 100;
+    top: 300;
     left: 50;
-
-  
+    display:inline-block;
+    justify-content: center;
+    align-content: center;
   }
-  
 
    div.green-form {
     border-radius: 5px;
     background-color: #1dbe40;
     padding: 20px;
-    width: 45%;
+    width:90%;
     position: absolute;
-    top: 100;
-    right: 50;
-   
+    top: 0;
+    right: -900;
+    display:inline-block;
+    justify-content: center;
+    align-content: center
   }
 
-
-  #button {
-    width: 6em;
-    border: 2px solid green;
-    background: #ffe;
-    border-radius: 5px;
+  input[type="button"] {
+    width: 200px; /* width of image */
+    height: 50px; /* height of image */
+    border: 0;
 }
+
