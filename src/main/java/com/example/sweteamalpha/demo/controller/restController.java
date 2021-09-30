@@ -52,7 +52,7 @@ public class restController {
     }
 
     @GetMapping("/getPlayer/{id}")
-    public ResponseEntity<player> getplayerById(@PathVariable("id") int id) {
+    public ResponseEntity<player> getPlayerById(@PathVariable("id") int id) {
         Optional<player> playerData = playerRepository.findById(id);
 
         if (playerData.isPresent()) {
@@ -64,7 +64,7 @@ public class restController {
     }
 
     @PostMapping("/addPlayer")
-    public ResponseEntity<player> createplayer(@RequestBody player Player){
+    public ResponseEntity<player> createPlayer(@RequestBody player Player){
         try {
             player _player = playerRepository.save(new player(Player.getfirst_name(), Player.getlast_name(), Player.getcodename()));
             return new ResponseEntity<>(_player, HttpStatus.CREATED);
@@ -75,7 +75,7 @@ public class restController {
     }
 
     @PutMapping("/updatePlayer/{id}")
-    public ResponseEntity<player> updateplayer(@PathVariable("id") int id, @RequestBody player Player) {
+    public ResponseEntity<player> updatePlayer(@PathVariable("id") int id, @RequestBody player Player) {
         Optional<player> playerData = playerRepository.findById(id);
 
         if (playerData.isPresent()) {
@@ -102,7 +102,7 @@ public class restController {
     }
 
     @DeleteMapping("/deleteAllPlayers")
-    public ResponseEntity<HttpStatus> deleteAllplayers() {
+    public ResponseEntity<HttpStatus> deleteAllPlayers() {
         try {
             playerRepository.deleteAll();
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
