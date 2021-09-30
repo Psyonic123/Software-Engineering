@@ -21,7 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.sweteamalpha.demo.model.player;
 import com.example.sweteamalpha.demo.repository.PlayerRepository;
 
-@CrossOrigin(origins = "https://sweteamalpha.herokuapp.com/")
+//localhost:8080
+@CrossOrigin(origins = "localhost:8080")
 @RestController
 @RequestMapping("/api")
 
