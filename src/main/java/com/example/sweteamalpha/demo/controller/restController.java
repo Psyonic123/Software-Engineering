@@ -1,24 +1,116 @@
 package com.example.sweteamalpha.demo.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.sweteamalpha.demo.model.player;
+import com.example.sweteamalpha.demo.repository.PlayerRepository;
+
+@CrossOrigin(origins = "http://localhost:8080")
+@RestController
+@RequestMapping("/api")
 
 public class restController {
 
-    @RequestMapping(path = "/getPlayer", method = RequestMethod.GET)
-    public String getPlayer() {
-        String playerName = "Nathan";
-        String codeName = "Yeet";
-        //connect to DB, return player object.
-        return playerName;
+    @Autowired
+    PlayerRepository playerRepository;
+
+    @GetMapping("/getAllPlayers")
+    public ResponseEntity<List<player>> getAllTutorials(@RequestParam(required = false) String first_name) {
+        try {
+            List<player> players = new ArrayList<player>();
+
+            if (first_name == null) {
+                playerRepository.findAll().forEach(players::add);
+            }
+            
+            if (players.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+
+            return new ResponseEntity<>(players, HttpStatus.OK);
+        }
+
+        catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
-    @RequestMapping(path = "/testDB", method = RequestMethod.POST)
-    public String postPlayer() {
-        String playerName = "Nathan";
-        String codeName = "Yeet";
-        //make a player object, send to DB.
-        return playerName;
+    @GetMapping("/getPlayer/{id}")
+    public ResponseEntity<player> getplayerById(@PathVariable("id") int id) {
+        Optional<player> playerData = playerRepository.findById(id);
+
+        if (playerData.isPresent()) {
+            return new ResponseEntity<>(playerData.get(), HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PostMapping("/addPlayer")
+    public ResponseEntity<player> createplayer(@RequestBody player Player){
+        try {
+            player _player = playerRepository.save(new player(Player.getfirst_name(), Player.getlast_name(), Player.getcodename()));
+            return new ResponseEntity<>(_player, HttpStatus.CREATED);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/updatePlayer/{id}")
+    public ResponseEntity<player> updateplayer(@PathVariable("id") int id, @RequestBody player Player) {
+        Optional<player> playerData = playerRepository.findById(id);
+
+        if (playerData.isPresent()) {
+            player _player = playerData.get();
+            _player.setfirst_name(Player.getfirst_name());
+            _player.setlast_name(Player.getlast_name());
+            _player.setcodename(Player.getcodename());
+            return new ResponseEntity<>(playerRepository.save(_player), HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/deletePlayer/{id}")
+    public ResponseEntity<HttpStatus> deletePlayer(@PathVariable("id") int id){
+        try {
+            playerRepository.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @DeleteMapping("/deleteAllPlayers")
+    public ResponseEntity<HttpStatus> deleteAllplayers() {
+        try {
+            playerRepository.deleteAll();
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }
+
