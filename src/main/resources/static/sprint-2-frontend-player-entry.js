@@ -1,9 +1,9 @@
 
-function addRow() {
+function addRed() {
           
     var playerName = document.getElementById("playerName");
     var playerID = document.getElementById("playerID");
-    var table = document.getElementById("myTableData");
+    var table = document.getElementById("redTable");
  
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
@@ -27,7 +27,7 @@ function addGreen() {
           
     var playerName = document.getElementById("playerName");
     var playerID = document.getElementById("playerID");
-    var table = document.getElementById("myTableDataGreen");
+    var table = document.getElementById("greenTable");
  
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
@@ -47,15 +47,15 @@ function addGreen() {
 function deleteRow(obj) {
       
     var index = obj.parentNode.parentNode.rowIndex;
-    var table = document.getElementById("myTableData");
+    var table = document.getElementById("redTable");
     table.deleteRow(index);
     
 }
 
-function deleteRowGreen(obj) {
+function deleteGreen(obj) {
       
     var index = obj.parentNode.parentNode.rowIndex;
-    var table = document.getElementById("myTableDataGreen");
+    var table = document.getElementById("greenTable");
     table.deleteRow(index);
     
 }
