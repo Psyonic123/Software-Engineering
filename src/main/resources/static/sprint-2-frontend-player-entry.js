@@ -1,7 +1,7 @@
 
 function addRow() {
           
-    var myName = document.getElementById("name");
+    var playerName = document.getElementById("playerName");
     var playerID = document.getElementById("playerID");
     var table = document.getElementById("myTableData");
  
@@ -25,7 +25,7 @@ function addRow() {
 
 function addGreen() {
           
-    var myName = document.getElementById("name");
+    var playerName = document.getElementById("playerName");
     var playerID = document.getElementById("playerID");
     var table = document.getElementById("myTableDataGreen");
  
