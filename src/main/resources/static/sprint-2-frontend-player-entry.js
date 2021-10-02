@@ -2,13 +2,13 @@
 function addRow() {
           
     var myName = document.getElementById("name");
-    var age = document.getElementById("age");
+    var playerID = document.getElementById("playerID");
     var table = document.getElementById("myTableData");
  
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
 
-    let str = "http://localhost:8080/api/getPlayer/" + age.value;
+    let str = "http://localhost:8080/api/getPlayer/" + playerID.value;
     console.log(str);
 
     fetchAsync(str).then((data) => {
@@ -23,16 +23,16 @@ function addRow() {
  
 }
 
-function addRowGreen() {
+function addGreen() {
           
     var myName = document.getElementById("name");
-    var age = document.getElementById("age");
+    var playerID = document.getElementById("playerID");
     var table = document.getElementById("myTableDataGreen");
  
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
  
-    let str = "http://localhost:8080/api/getPlayer/" + age.value;
+    let str = "http://localhost:8080/api/getPlayer/" + playerID.value;
     console.log(str);
 
     fetchAsync(str).then((data) => {
