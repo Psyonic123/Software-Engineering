@@ -9,7 +9,7 @@ import javax.persistence.*;
     public class player {
 
         @Id
-        @GeneratedValue(strategy = GenerationType.AUTO)
+        @Column(name = "id")
         private int id;
 
         @Column(name = "first_name")
@@ -25,7 +25,8 @@ import javax.persistence.*;
         {
         }
 
-        public player(String first_name, String last_name, String codename){
+        public player(int id, String first_name, String last_name, String codename){
+            this.id = id;
             this.first_name = first_name;
             this.last_name = last_name;
             this.codename = codename;
@@ -36,28 +37,28 @@ import javax.persistence.*;
             return id;
         }
 
-        public String getfirst_name() {
+        public String getFirstName() {
             return first_name;
         }
 
-        public String getlast_name() {
+        public String getLastName() {
             return last_name;
         }
 
-        public String getcodename() {
+        public String getCodeName() {
             return codename;
         }
 
         //sets
-        public void setfirst_name(String first_name) {
+        public void setFirstName(String first_name) {
             this.first_name = first_name;
         }
 
-        public void setlast_name(String last_name) {
+        public void setLastName(String last_name) {
             this.last_name = last_name;
         }
 
-        public void setcodename(String codename) {
+        public void setCodeName(String codename) {
             this.codename = codename;
         }
 
