@@ -14,10 +14,10 @@ function myFunction() {
 
 <form>
   <label for="fname" style="color: azure;">ENTER PLAYER ID</label>
-  <input type="hidden" id="name" method=POST >
-  <input type="text" id="age" name="playerID" placeholder="Player ID">
-  <input type="button" id="addRed" value="Add"  style=background-color:#f83f3f onclick=Javascript:addRow()>
-  <input type="button" id="addGreen" value="Add" style=background-color:#1dbe40 onclick=Javascript:addRowGreen()> 
+  <input type="hidden" id="playerName" method=POST >
+  <input type="text" id="playerID" name="playerID" placeholder="Player ID">
+  <input type="button" id="addRed" value="Add"  style=background-color:#f83f3f onclick=Javascript:addRed()>
+  <input type="button" id="addGreen" value="Add" style=background-color:#1dbe40 onclick=Javascript:addGreen()> 
   <br>
 </form>
 
@@ -27,7 +27,7 @@ function myFunction() {
 <div class = "red-form" id="mydata">
   <div id="mydata">
     <b>Current data in the system ...</b>
-    <table id="myTableData"  border="1" cellpadding="2">
+    <table id="redTable"  border="1" cellpadding="2">
         <tr>
             <td>&nbsp;</td>
             <td><b>Name</b></td>
@@ -42,7 +42,7 @@ function myFunction() {
  <div class = "green-form" id="mydatagreen">
   <div id="mydatagreen">
     <b>Current data in the system ...</b>
-    <table id="myTableDataGreen"  border="1" cellpadding="2">
+    <table id="greenTable"  border="1" cellpadding="2">
         <tr>
             <td>&nbsp;</td>
             <td><b>Name</b></td>
