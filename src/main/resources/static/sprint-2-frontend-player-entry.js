@@ -1,4 +1,4 @@
-
+var URL = "https://sweteamalpha.herokuapp.com/api/getPlayer/"
 function addRed() {
           
     var playerName = document.getElementById("playerName");
@@ -8,7 +8,7 @@ function addRed() {
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
 
-    let str = "http://localhost:8080/api/getPlayer/" + playerID.value;
+    URL + playerID.value;
     console.log(str);
 
     fetchAsync(str).then((data) => {
@@ -32,7 +32,7 @@ function addGreen() {
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
  
-    let str = "http://localhost:8080/api/getPlayer/" + playerID.value;
+    URL + playerID.value;
     console.log(str);
 
     fetchAsync(str).then((data) => {
