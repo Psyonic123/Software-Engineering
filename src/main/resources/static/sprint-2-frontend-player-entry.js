@@ -8,7 +8,7 @@ function addRed() {
     var row = table.insertRow(rowCount);
 
     let URL = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;
-    console.log(str);
+    console.log(URL);
 
     fetchAsync(URL).then((data) => {
         console.log("Data ID: " + data.id);
@@ -32,7 +32,7 @@ function addGreen() {
     var row = table.insertRow(rowCount);
  
     let URL = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;
-    console.log(str);
+    console.log(URL);
 
     fetchAsync(URL).then((data) => {
         console.log("Data ID: " + data.id);
