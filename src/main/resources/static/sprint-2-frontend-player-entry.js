@@ -10,7 +10,7 @@ function addRed() {
     let URL = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;
     console.log(str);
 
-    fetchAsync(str).then((data) => {
+    fetchAsync(URL).then((data) => {
         console.log("Data ID: " + data.id);
         row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javascript:deleteRow(this)">';
         row.insertCell(1).innerHTML= data.codename;
@@ -34,7 +34,7 @@ function addGreen() {
     let URL = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;
     console.log(str);
 
-    fetchAsync(str).then((data) => {
+    fetchAsync(URL).then((data) => {
         console.log("Data ID: " + data.id);
         row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javascript:deleteRow(this)">';
         row.insertCell(1).innerHTML= data.codename;
