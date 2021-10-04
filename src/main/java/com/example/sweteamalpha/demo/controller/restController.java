@@ -64,7 +64,7 @@ public class restController {
         }
     }
 
-    @PostMapping("/addPlayer/{id}/{firstname}/{lastname}/{codename}")
+    @PostMapping("/addPlayer/{id}/{firstname}/{lastname}/{codename}", method = "POST")
     public ResponseEntity<player> createPlayer(@PathVariable("id") int id ,@PathVariable("firstname") String firstName, @PathVariable("lastname") String lastName,
                                                @PathVariable("codename") String codeName) {
 
