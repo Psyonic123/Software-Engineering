@@ -13,7 +13,7 @@ function addRed() {
     fetchAsync(URL).then((data) => {
         console.log("Data ID: " + data.id);
         row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javascript:deleteRow(this)">';
-        row.insertCell(1).innerHTML= data.codename;
+        row.insertCell(1).innerHTML= data.codeName;
         row.insertCell(2).innerHTML= data.id;
     });
 
@@ -37,7 +37,7 @@ function addGreen() {
     fetchAsync(URL).then((data) => {
         console.log("Data ID: " + data.id);
         row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javascript:deleteRow(this)">';
-        row.insertCell(1).innerHTML= data.codename;
+        row.insertCell(1).innerHTML= data.codeName;
         row.insertCell(2).innerHTML= data.id;
     });
  
