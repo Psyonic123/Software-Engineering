@@ -1,58 +1,75 @@
 <p>PLAYER ENTRY TERMINAL</p>
 
-
 <script>
-function myFunction() {
-  document.getElementById("myForm").submit();
-}
+  function myFunction() {
+    document.getElementById("myForm").submit();
+  }
 </script>
 
-<body onload=load()>
-<div id="myform">
-<script type="text/javascript" src="sprint-2-frontend-player-entry.js"></script>
+<body onload="load()">
+  <div id="myform">
+    <script
+      type="text/javascript"
+      src="sprint-2-frontend-player-entry.js"
+    ></script>
 
+    <form>
+      <label for="fname" style="color: azure">ENTER PLAYER ID</label>
+      <input type="hidden" id="playerName" method="POST" />
+      <input
+        type="text"
+        id="playerID"
+        name="playerID"
+        placeholder="Player ID"
+      />
+      <input
+        type="button"
+        id="addRedForm"
+        value="Add"
+        style="background-color: #f83f3f"
+        onclick="Javascript:addRed()"
+      />
+      <input
+        type="button"
+        id="addGreenForm"
+        value="Add"
+        style="background-color: #1dbe40"
+        onclick="Javascript:addGreen()"
+      />
+      <br />
+    </form>
+  </div>
 
-<form>
-  <label for="fname" style="color: azure;">ENTER PLAYER ID</label>
-  <input type="hidden" id="name" method=POST >
-  <input type="text" id="age" name="playerID" placeholder="Player ID">
-  <input type="button" id="addRed" value="Add"  style=background-color:#f83f3f onclick=Javascript:addRow()>
-  <input type="button" id="addGreen" value="Add" style=background-color:#1dbe40 onclick=Javascript:addRowGreen()> 
-  <br>
-</form>
-
-
+  <div class="red-form" id="mydata">
+    <div id="mydata">
+      <b>Current data in the system ...</b>
+      <table id="redTable" border="1" cellpadding="2">
+        <tr>
+          <td>&nbsp;</td>
+          <td><b>Name</b></td>
+          <td><b>ID</b></td>
+        </tr>
+      </table>
+      &nbsp;
+    </div>
 </div>
-
-<div class = "red-form" id="mydata">
-  <div id="mydata">
-    <b>Current data in the system ...</b>
-    <table id="myTableData"  border="1" cellpadding="2">
-        <tr>
+    <div class="green-form" id="mydatagreen">
+      <div id="mydatagreen">
+        <b>Current data in the system ...</b>
+        <table id="greenTable" border="1" cellpadding="2">
+          <tr>
             <td>&nbsp;</td>
             <td><b>Name</b></td>
             <td><b>ID</b></td>
-        </tr>
-    </table>
-    &nbsp;
- </div>
+          </tr>
+        </table>
+        </div>
+        &nbsp;
+      </div>
 
-
-
- <div class = "green-form" id="mydatagreen">
-  <div id="mydatagreen">
-    <b>Current data in the system ...</b>
-    <table id="myTableDataGreen"  border="1" cellpadding="2">
-        <tr>
-            <td>&nbsp;</td>
-            <td><b>Name</b></td>
-            <td><b>ID</b></td>
-        </tr>
-    </table>
-    &nbsp;
- </div>
-
-
-<head>
-    <link rel="stylesheet" href="sprint-2-frontend-player-entry.css">
-</head>
+      <head>
+        <link rel="stylesheet" href="sprint-2-frontend-player-entry.css" />
+      </head>
+    </div>
+  </div>
+</body>
