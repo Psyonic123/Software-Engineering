@@ -7,16 +7,28 @@ function addRed() {
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
 
-    // let URL = "http://localhost:8080/api/getPlayer/" + playerID.value;
-    let URL = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;
+    let URL_get = "http://localhost:8080/api/getPlayer/" + playerID.value;
+    // let URL_get = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;
+    
 
-    console.log(URL);
+    console.log(URL_get);
 
-    fetchAsync(URL).then((data) => {
+    fetchAsync(URL_get).then((data) => {
+        document.getElementById("playerName").hidden = true;
         console.log("Data ID: " + data.id);
         row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javascript:deleteRow(this)">';
         row.insertCell(1).innerHTML= data.codeName;
         row.insertCell(2).innerHTML= data.id;
+    })
+    .catch((err) => {
+        console.log("Error caught!!!");
+        // document.getElementById("playerName").hidden = false;
+        var codeName = prompt("Enter Code Name!!")
+        let URL_set = "http://localhost:8080/api/addPlayer/" + playerID.value + '/' + codeName
+        fetchAsync(URL_set).then((data) => {
+            console.log("URL ADD STUFF");
+        })
+
     });
 
 
@@ -33,15 +45,18 @@ function addGreen() {
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
  
-    // let URL = "http://localhost:8080/api/getPlayer/" + playerID.value;
-    let URL = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;
-    console.log(URL);
+    let URL_get = "http://localhost:8080/api/getPlayer/" + playerID.value;
+    // let URL = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;
+    console.log(URL_get);
 
-    fetchAsync(URL).then((data) => {
+    fetchAsync(URL_get).then((data) => {
         console.log("Data ID: " + data.id);
         row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javascript:deleteGreen(this)">';
         row.insertCell(1).innerHTML= data.codeName;
         row.insertCell(2).innerHTML= data.id;
+    })
+    .catch((err) => {
+
     });
  
 }
