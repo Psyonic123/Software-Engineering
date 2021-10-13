@@ -25,9 +25,21 @@ function addRed() {
         // document.getElementById("playerName").hidden = false;
         var codeName = prompt("Enter Code Name!!")
         let URL_set = "http://localhost:8080/api/addPlayer/" + playerID.value + '/' + codeName
-        fetchAsync(URL_set).then((data) => {
-            console.log("URL ADD STUFF");
-        })
+        const params = {
+            id: playerID.value,
+            firstName:	"",
+            lastName:	"",
+            codeName:	codeName
+        };
+        const options = {
+            method: 'POST',
+            body: JSON.stringify( params )  
+        };
+        fetch(URL_set, options )
+            .then( response => response.json() )
+            .then( response => {
+                console.log("URL STUFF ADDED?")
+        });
 
     });
 
