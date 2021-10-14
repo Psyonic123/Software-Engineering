@@ -7,8 +7,8 @@ function addRed() {
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
 
-    let URL_get = "http://localhost:8080/api/getPlayer/" + playerID.value;
-    // let URL_get = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;
+    // let URL_get = "http://localhost:8080/api/getPlayer/" + playerID.value;
+    let URL_get = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;
     
 
     console.log(URL_get);
@@ -24,7 +24,8 @@ function addRed() {
         console.log("Error caught!!!");
         // document.getElementById("playerName").hidden = false;
         var codeName = prompt("Enter Code Name!!")
-        let URL_set = "http://localhost:8080/api/addPlayer/" + playerID.value + '/' + codeName
+        // let URL_set = "http://localhost:8080/api/addPlayer/" + playerID.value + '/' + codeName
+        let URL_set = "https://sweteamalpha.herokuapp.com/api/addPlayer/" + playerID.value + '/' + codeName
         const params = {
             id: playerID.value,
             firstName:	"",
@@ -68,7 +69,26 @@ function addGreen() {
         row.insertCell(2).innerHTML= data.id;
     })
     .catch((err) => {
-
+        console.log("Error caught!!!");
+        // document.getElementById("playerName").hidden = false;
+        var codeName = prompt("Enter Code Name!!")
+        // let URL_set = "http://localhost:8080/api/addPlayer/" + playerID.value + '/' + codeName
+        let URL_set = "https://sweteamalpha.herokuapp.com/api/addPlayer/" + playerID.value + '/' + codeName
+        const params = {
+            id: playerID.value,
+            firstName:	"",
+            lastName:	"",
+            codeName:	codeName
+        };
+        const options = {
+            method: 'POST',
+            body: JSON.stringify( params )  
+        };
+        fetch(URL_set, options )
+            .then( response => response.json() )
+            .then( response => {
+                console.log("URL STUFF ADDED?")
+        });
     });
  
 }
