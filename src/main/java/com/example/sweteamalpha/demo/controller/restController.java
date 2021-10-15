@@ -65,13 +65,13 @@ public class restController {
         }
     }
 
-    @PostMapping("/addPlayer/{id}/{firstname}/{lastname}/{codename}")
-    public ResponseEntity<player> createPlayer(@PathVariable("id") int id ,@PathVariable("firstname") String firstName, @PathVariable("lastname") String lastName,
+    @PostMapping("/addPlayer/{id}/{codename}")
+    public ResponseEntity<player> createPlayer(@PathVariable("id") int id ,
                                                @PathVariable("codename") String codeName) {
 
 
         try {
-            player _player = playerRepository.save(new player(id, firstName, lastName, codeName));
+            player _player = playerRepository.save(new player(id, null, null, codeName));
             return new ResponseEntity<>(_player, HttpStatus.CREATED);
         }
         catch (Exception e) {
