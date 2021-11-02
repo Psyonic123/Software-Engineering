@@ -63,10 +63,13 @@ public class restController {
         }
     }
 
-    @PostMapping("/addPlayer")
-    public ResponseEntity<player> createPlayer(@RequestBody player Player){
+    @PostMapping("/addPlayer/{id}/{codename}")
+    public ResponseEntity<player> createPlayer(@PathVariable("id") int id ,
+                                               @PathVariable("codename") String codeName) {
+
+
         try {
-            player _player = playerRepository.save(new player(Player.getfirst_name(), Player.getlast_name(), Player.getcodename()));
+            player _player = playerRepository.save(new player(id, null, null, codeName));
             return new ResponseEntity<>(_player, HttpStatus.CREATED);
         }
         catch (Exception e) {
@@ -74,43 +77,43 @@ public class restController {
         }
     }
 
-    @PutMapping("/updatePlayer/{id}")
-    public ResponseEntity<player> updatePlayer(@PathVariable("id") int id, @RequestBody player Player) {
-        Optional<player> playerData = playerRepository.findById(id);
+//    @PutMapping("/updatePlayer/{id}")
+//    public ResponseEntity<player> updatePlayer(@PathVariable("id") int id, @RequestBody player Player) {
+//        Optional<player> playerData = playerRepository.findById(id);
+//
+//        if (playerData.isPresent()) {
+//            player _player = playerData.get();
+//            _player.setFirstName(Player.getFirstName());
+//            _player.setLastName(Player.getLastName());
+//            _player.setCodeName(Player.getCodeName());
+//            return new ResponseEntity<>(playerRepository.save(_player), HttpStatus.OK);
+//        }
+//        else {
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//        }
+//    }
 
-        if (playerData.isPresent()) {
-            player _player = playerData.get();
-            _player.setfirst_name(Player.getfirst_name());
-            _player.setlast_name(Player.getlast_name());
-            _player.setcodename(Player.getcodename());
-            return new ResponseEntity<>(playerRepository.save(_player), HttpStatus.OK);
-        }
-        else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+//    @DeleteMapping("/deletePlayer/{id}")
+//    public ResponseEntity<HttpStatus> deletePlayer(@PathVariable("id") int id){
+//        try {
+//            playerRepository.deleteById(id);
+//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//        }
+//        catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 
-    @DeleteMapping("/deletePlayer/{id}")
-    public ResponseEntity<HttpStatus> deletePlayer(@PathVariable("id") int id){
-        try {
-            playerRepository.deleteById(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    @DeleteMapping("/deleteAllPlayers")
-    public ResponseEntity<HttpStatus> deleteAllPlayers() {
-        try {
-            playerRepository.deleteAll();
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @DeleteMapping("/deleteAllPlayers")
+//    public ResponseEntity<HttpStatus> deleteAllPlayers() {
+//        try {
+//            playerRepository.deleteAll();
+//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//        }
+//        catch (Exception e) {
+//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 
 }
 
