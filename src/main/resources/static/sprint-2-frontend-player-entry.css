@@ -35,33 +35,40 @@ body {
     width:300;
   }
   
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
   div.red-form {
     border-radius: 5px;
     background-color: #f83f3f;
     padding: 20px;
     width: 45%;
+    position: absolute;
     top: 300;
     left: 50;
-    display:inline-flex;
+    display:inline-block;
     justify-content: center;
     align-content: center;
   }
 
-  div.green-form {
+   div.green-form {
     border-radius: 5px;
     background-color: #1dbe40;
     padding: 20px;
-    width: 45%;
-    top: 300;
-    right: 50;
-    display:inline-flex;
+    width:90%;
+    position: absolute;
+    top: 0;
+    right: -900;
+    display:inline-block;
     justify-content: center;
-    align-content: center;
+    align-content: center
   }
-
 
   input[type="button"] {
     width: 200px; /* width of image */
     height: 50px; /* height of image */
     border: 0;
 }
+

@@ -1,93 +1,45 @@
-function addRed() {
+function addRow() {
           
-    var playerName = document.getElementById("playerName");
-    var playerID = document.getElementById("playerID");
-
-    // let URL_get = "http://localhost:8080/api/getPlayer/" + playerID.value;
-    let URL_get = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;    
-
-    console.log(URL_get);
-
-    fetchAsync(URL_get).then((data) => {
-        console.log("Data ID: " + data.id);
-        addRow(data.codeName,data.id,'red')
-    })
-    .catch((err) => {
-        console.log("Error caught!!!");
-        // document.getElementById("playerName").hidden = false;
-        var codeName = prompt("Enter Code Name!!")
-        // let URL_set = "http://localhost:8080/api/addPlayer/" + playerID.value + '/' + codeName
-        let URL_set = "https://sweteamalpha.herokuapp.com/api/addPlayer/" + playerID.value + '/' + codeName
-        const params = {
-            id: playerID.value,
-            firstName:	"",
-            lastName:	"",
-            codeName:	codeName
-        };
-        const options = {
-            method: 'POST',
-            body: JSON.stringify( params )  
-        };
-        fetch(URL_set, options )
-            .then( response => response.json() )
-            .then( response => {
-                console.log("URL STUFF ADDED?")
-        });
-
-    });
+    var myName = document.getElementById("name");
+    var age = document.getElementById("age");
+    var table = document.getElementById("myTableData");
+ 
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+ 
+    row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javascript:deleteRow(this)">';
+    row.insertCell(1).innerHTML= myName.value;
+    row.insertCell(2).innerHTML= age.value;
  
 }
 
-function addGreen() {
+function addRowGreen() {
           
-    var playerName = document.getElementById("playerName");
-    var playerID = document.getElementById("playerID");
+    var myName = document.getElementById("name");
+    var age = document.getElementById("age");
+    var table = document.getElementById("myTableDataGreen");
  
-    // let URL_get = "http://localhost:8080/api/getPlayer/" + playerID.value;
-    let URL_get = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;
-    console.log(URL_get);
-
-    fetchAsync(URL_get).then((data) => {
-        console.log("Data ID: " + data.id);
-        addRow(data.codeName,data.id,'green');
-    })
-    .catch((err) => {
-        console.log("Error caught!!!");
-        // document.getElementById("playerName").hidden = false;
-        var codeName = prompt("Enter Code Name!!");
-        // let URL_set = "http://localhost:8080/api/addPlayer/" + playerID.value + '/' + codeName;
-        let URL_set = "https://sweteamalpha.herokuapp.com/api/addPlayer/" + playerID.value + '/' + codeName;
-        const params = {
-            id: playerID.value,
-            firstName:	"",
-            lastName:	"",
-            codeName:	codeName
-        };
-        const options = {
-            method: 'POST',
-            body: JSON.stringify( params )  
-        };
-        fetch(URL_set, options )
-            .then( response => response.json() )
-            .then( response => {
-                console.log("URL STUFF ADDED?")
-        });
-    });
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+ 
+    row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javascript:deleteRowGreen(this)">';
+    row.insertCell(1).innerHTML= myName.value;
+    row.insertCell(2).innerHTML= age.value;
  
 }
  
 function deleteRow(obj) {
       
     var index = obj.parentNode.parentNode.rowIndex;
-    var table = document.getElementById("redTable");
+    var table = document.getElementById("myTableData");
     table.deleteRow(index);
     
 }
 
-function deleteGreen(obj) {
+function deleteRowGreen(obj) {
       
     var index = obj.parentNode.parentNode.rowIndex;
-    var table = document.getElementById("greenTable");
+    var table = document.getElementById("myTableDataGreen");
     table.deleteRow(index);
     
 }
@@ -98,27 +50,4 @@ function load() {
     
     console.log("Page load finished");
  
-}
-
-async function fetchAsync (url) {
-    let response = await fetch(url);
-    let data = await response.json();
-    return data;
-}
-
-function addRow(codename,id,color) {
-    if(color == 'red') {
-        var table = document.getElementById("redTable"); 
-        var rowCount = table.rows.length;
-        var row = table.insertRow(rowCount);
-        row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javascript:deleteRow(this)">';
-    }
-    else {
-        var table = document.getElementById("greenTable"); 
-        var rowCount = table.rows.length;
-        var row = table.insertRow(rowCount);
-        row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javascript:deleteGreen(this)">';
-    }
-    row.insertCell(1).innerHTML= codename;
-    row.insertCell(2).innerHTML= id;
 }
