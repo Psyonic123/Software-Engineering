@@ -1,20 +1,79 @@
-<!DOCTYPE HTML>
+<p>PLAYER SCREEN</p>
 
-<link rel="stylesheet" href="sprint3_player_action_screen.css"/>
-<script type="text/javascript" src="sprint3_player_action_screen.js"> </script>
+<script>
+  function myFunction() {
+    document.getElementById("myForm").submit();
+  }
+</script>
 
-<div class="red-team-side">
-    <div id="red-team-data">
-      <b>Red Table</b>
-      <table id="redTable" border="1" cellpadding="2">
-        <tr>
-          <td>&nbsp;</td>
-          <td><b>Name</b></td>
-          <td><b>ID</b></td>
-        </tr>
-      </table>
-      &nbsp;
-    </div>
-</div>
+<body onload="load()">
+	
+	<div class = "game-timer">
+		Gametime ends in: <!-- <span id="timer"> 30 minutes and 0 seconds! </span> 
+		<!-- custom js -->
+		<br>
+		<span id="numTimer" border="10" > 30:00 </span>
+		<script>
+		window.onload = function () {
+			var minute = 30;
+            var sec = 0;
+			var stringSec = sec.toString();
+            setInterval(function () {
+				//document.getElementById("timer").innerHTML = minute + " minutes" + " and " + sec +  " seconds!";
+				if(stringSec.length < 2) {
+					stringSec = "0" + sec.toString();
+				}
+				document.getElementById("numTimer").innerHTML = minute + ":" + stringSec;
+				if (sec == 00) {
+					minute--;
+					sec = 60;
+					if (minute == 0) {
+						minute = 30;
+					}
+				}
+				sec--;
+				stringSec = sec.toString();
+            }, 1000);
+		};
+		</script>
+	</div>
+	
+	<p>
+	<p>
 
-</html>
+	<div class="red-player-table" id="mydata">
+		<div id="mydata">
+			<b> Red Player Scores </b>
+			<p>
+			<table id="redTable" border="1" cellpadding="5" align="center">
+				<tr>
+					<td style = "width: 15%" align = "center" ><b>Name</b></td>
+					<td style = "width: 10%" align = "center" ><b>ID</b></td>
+					<td style = "width: 15%" align = "center" ><b>Score</b></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="green-player-table" id="mydatagreen">
+		<div id="mydatagreen">
+			<b> Green Player Scores </b>
+			<p>
+			<table id="greenTable" border="1" cellpadding="5" align="center">
+				<tr>
+					<td style = "width: 15%" align = "center" ><b>Name</b></td>
+					<td style = "width: 10%" align = "center" ><b>ID</b></td>
+					<td style = "width: 15%" align = "center" ><b>Score</b></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+      <head>
+        <link rel="stylesheet" href="sprint3_player_action_screen.css" />
+      </head>
+    
+	</div>
+	</div>
+	
+</body>
