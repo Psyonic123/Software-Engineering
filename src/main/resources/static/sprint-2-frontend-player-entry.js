@@ -106,6 +106,8 @@ async function fetchAsync (url) {
     return data;
 }
 
+let playerArray = [];
+
 function addRow(codename,id,color) {
     if(color == 'red') {
         var table = document.getElementById("redTable"); 
@@ -121,4 +123,22 @@ function addRow(codename,id,color) {
     }
     row.insertCell(1).innerHTML= codename;
     row.insertCell(2).innerHTML= id;
+    playerArray.push(codename, id, color);
+    sessionStorage.setItem("playerArray", JSON.stringify(playerArray));
+    console.log("set item worked");
+    console.log(playerArray[playerArray.length-1]);
 }
+<<<<<<< Updated upstream
+=======
+
+//event listener for enter press
+document.addEventListener("keydown", function(event) {
+    console.log("Key Pressed");
+    if (event.key === "Enter")
+    {
+        location.replace("sprint3_player_action_screen.html");
+        event.preventDefault();
+    }
+});
+
+>>>>>>> Stashed changes
