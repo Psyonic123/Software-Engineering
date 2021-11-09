@@ -1,3 +1,7 @@
+//Global Tables
+var redTable = document.getElementById("redTable");
+var greenTable = document.getElementById("greenTable");
+
 function addRed() {
           
     var playerName = document.getElementById("playerName");
@@ -122,3 +126,13 @@ function addRow(codename,id,color) {
     row.insertCell(1).innerHTML= codename;
     row.insertCell(2).innerHTML= id;
 }
+
+//event listener for enter press
+document.addEventListener("keydown", function(event) {
+    console.log("Key Pressed");
+    if (event.key === "Enter")
+    {
+        location.replace("sprint3_player_action_screen.html");
+        event.preventDefault();
+    }
+});

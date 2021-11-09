@@ -24,4 +24,10 @@ public class routeController {
         return "sprint-2-frontend-player-entry";
     }
 
+    @GetMapping("/sprint3_player_action_screen.html")
+    public String actionScreen(Model model) {
+        model.addAttribute("appName", appName);
+        return "sprint3_player_action_screen";
+    }
+
 }
