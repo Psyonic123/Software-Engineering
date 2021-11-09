@@ -1,3 +1,7 @@
+//Global Tables
+var redTable = document.getElementById("redTable");
+var greenTable = document.getElementById("greenTable");
+
 function addRed() {
           
     var playerName = document.getElementById("playerName");
@@ -138,4 +142,3 @@ document.addEventListener("keydown", function(event) {
         event.preventDefault();
     }
 });
-
