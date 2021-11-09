@@ -128,8 +128,6 @@ function addRow(codename,id,color) {
     console.log("set item worked");
     console.log(playerArray[playerArray.length-1]);
 }
-<<<<<<< Updated upstream
-=======
 
 //event listener for enter press
 document.addEventListener("keydown", function(event) {
@@ -141,4 +139,3 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
->>>>>>> Stashed changes
