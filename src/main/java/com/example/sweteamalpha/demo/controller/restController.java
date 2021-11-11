@@ -22,7 +22,9 @@ import com.example.sweteamalpha.demo.model.player;
 import com.example.sweteamalpha.demo.repository.PlayerRepository;
 
 
-@CrossOrigin(origins = "https://sweteamalpha.herokuapp.com/")
+// @CrossOrigin(origins = "https://sweteamalpha.herokuapp.com/")
+@CrossOrigin(origins = "http://localhost:8080")
+
 @RestController
 @RequestMapping("/api")
 
