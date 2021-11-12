@@ -1,14 +1,11 @@
-//Global Tables
-var redTable = document.getElementById("redTable");
-var greenTable = document.getElementById("greenTable");
 
 function addRed() {
           
     var playerName = document.getElementById("playerName");
     var playerID = document.getElementById("playerID");
 
-    let URL_get = "http://localhost:8080/api/getPlayer/" + playerID.value;
-    // let URL_get = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;    
+    // let URL_get = "http://localhost:8080/api/getPlayer/" + playerID.value;
+    let URL_get = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;    
 
     console.log(URL_get);
 
@@ -20,8 +17,8 @@ function addRed() {
         console.log("Error caught!!!");
         // document.getElementById("playerName").hidden = false;
         var codeName = prompt("Enter Code Name!!")
-        let URL_set = "http://localhost:8080/api/addPlayer/" + playerID.value + '/' + codeName
-        // let URL_set = "https://sweteamalpha.herokuapp.com/api/addPlayer/" + playerID.value + '/' + codeName
+        // let URL_set = "http://localhost:8080/api/addPlayer/" + playerID.value + '/' + codeName
+        let URL_set = "https://sweteamalpha.herokuapp.com/api/addPlayer/" + playerID.value + '/' + codeName
         const params = {
             id: playerID.value,
             firstName:	"",
@@ -47,8 +44,8 @@ function addGreen() {
     var playerName = document.getElementById("playerName");
     var playerID = document.getElementById("playerID");
  
-    let URL_get = "http://localhost:8080/api/getPlayer/" + playerID.value;
-    // let URL_get = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;
+    // let URL_get = "http://localhost:8080/api/getPlayer/" + playerID.value;
+    let URL_get = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;
     console.log(URL_get);
 
     fetchAsync(URL_get).then((data) => {
@@ -59,8 +56,8 @@ function addGreen() {
         console.log("Error caught!!!");
         // document.getElementById("playerName").hidden = false;
         var codeName = prompt("Enter Code Name!!");
-        let URL_set = "http://localhost:8080/api/addPlayer/" + playerID.value + '/' + codeName;
-        // let URL_set = "https://sweteamalpha.herokuapp.com/api/addPlayer/" + playerID.value + '/' + codeName;
+        // let URL_set = "http://localhost:8080/api/addPlayer/" + playerID.value + '/' + codeName;
+        let URL_set = "https://sweteamalpha.herokuapp.com/api/addPlayer/" + playerID.value + '/' + codeName;
         const params = {
             id: playerID.value,
             firstName:	"",
