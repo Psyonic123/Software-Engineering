@@ -1,6 +1,3 @@
-//Global Tables
-var redTable = document.getElementById("redTable");
-var greenTable = document.getElementById("greenTable");
 
 function addRed() {
           

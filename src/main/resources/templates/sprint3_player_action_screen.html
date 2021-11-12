@@ -9,14 +9,15 @@
 <body onload="load()">
 
 	<div class = "game-timer">
-		Gametime ends in: <!-- <span id="timer"> 30 minutes and 0 seconds! </span> 
+		<span id="warningTimerText" >Gametime starts in: </span><!-- <span id="timer"> 30 minutes and 0 seconds! </span> 
 		<!-- custom js -->
 		<br>
-		<span id="numTimer" border="10" > 30:00 </span>
+		<span id="numTimer" border="10" > 0:05 </span>
 		<script>
 		window.onload = function () {
-			var minute = 30;
-            var sec = 0;
+			var minute = 0;
+            var sec = 05;
+			var warningBool = false;
 			var stringSec = sec.toString();
             setInterval(function () {
 				//document.getElementById("timer").innerHTML = minute + " minutes" + " and " + sec +  " seconds!";
@@ -25,9 +26,19 @@
 				}
 				document.getElementById("numTimer").innerHTML = minute + ":" + stringSec;
 				if (sec == 00) {
+					console.log("in big loop");
+					if(warningBool==false){
+						minute=30;
+						sec=00;
+						warningBool=true;
+						console.log("in bool loop");
+						document.getElementById("warningTimerText").innerHTML = "Gametime ends in:" ;
+
+					}
 					minute--;
 					sec = 60;
-					if (minute == 0) {
+					if (minute == 0 && warningBool==true) {
+						document.getElementById("warningTimerText").innerHTML = "Gametime ends in:" ;
 						minute = 30;
 					}
 				}
@@ -76,6 +87,17 @@
       </head>
     
 	</div>
+	</div>
+	<div class="play-action-display" id="play-action-display">
+		<div id="play-action-display">
+			<b> Action Display </b>
+			<p>
+			<table id="actionDisplayTable" border="1" cellpadding="5" align="center">
+				<tr>
+					<td style = "width: 40%" align = "center" ><b>Events</b></td>
+				</tr>
+			</table>
+		</div>
 	</div>
 	
 </body>
