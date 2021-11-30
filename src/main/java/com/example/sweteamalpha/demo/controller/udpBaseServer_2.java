@@ -5,20 +5,14 @@ package com.example.sweteamalpha.demo.controller;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.net.SocketException;
-
-import com.example.sweteamalpha.demo.model.player;
-import com.example.sweteamalpha.demo.repository.PlayerRepository;
-import java.util.*;
+import org.json.simple.*;
 
 public class udpBaseServer_2 {
 
-    public String startServer() throws IOException {
+    public JSONObject startServer() throws IOException {
         // Step 1 : Create a socket to listen at port 1234
         DatagramSocket ds = new DatagramSocket(1234);
         byte[] receive = new byte[65535];
-
         DatagramPacket DpReceive = null;
         while (true) {
 
@@ -29,18 +23,23 @@ public class udpBaseServer_2 {
             ds.receive(DpReceive);
 
             System.out.println("Client:-" + data(receive));
+            JSONObject json = new JSONObject();
             String data = data(receive).toString();
+
+            json.put("data", data);
 
             // Exit the server if the client sends "bye"
             if (data(receive).toString().equals("bye")) {
                 System.out.println("Client sent bye.....EXITING");
                 break;
             }
-            // Clear the buffer after every message.
-            return data;
+
+            if (data != null && data.length() > 0) {
+                return json;
+            }
 
         }
-        return "Exit Loop";
+        return null;
     }
 
     // A utility method to convert the byte array

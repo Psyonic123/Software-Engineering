@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.json.simple.*;
 import com.example.sweteamalpha.demo.model.player;
 import com.example.sweteamalpha.demo.repository.PlayerRepository;
 
@@ -33,12 +33,13 @@ public class restController {
     PlayerRepository playerRepository;
 
     @GetMapping("/startServer")
-    public String startServer(@RequestParam(required = false) String first_name) {
+    public JSONObject startServer(@RequestParam(required = false) String first_name) {
         try {
             udpBaseServer_2 server = new udpBaseServer_2();
-            return server.startServer();
+            JSONObject data = server.startServer();
+            return data;
         } catch (Exception e) {
-            return "";
+            return null;
         }
     }
 

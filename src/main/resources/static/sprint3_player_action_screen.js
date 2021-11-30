@@ -33,3 +33,25 @@ for (let i = 0; i < arrNum; i++) {
   playerArray.shift();
   playerArray.shift();
 }
+async function fetchAsync(url) {
+  let response = await fetch(url);
+  let data = await response.json();
+  return data;
+}
+function getTaggedPlayers() {
+  var playerName = document.getElementById("playerName");
+  var playerID = document.getElementById("playerID");
+
+  let URL_get = "http://localhost:8080/api/startServer";
+  //let URL_get = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;
+  console.log(URL_get);
+  fetchAsync(URL_get)
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
+
+getTaggedPlayers();
