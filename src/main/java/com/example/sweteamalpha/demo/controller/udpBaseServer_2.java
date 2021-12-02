@@ -1,45 +1,39 @@
 package com.example.sweteamalpha.demo.controller;
 
-// Java program to illustrate Server side
-// Implementation using DatagramSocket
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
+import java.net.*;
 import org.json.simple.*;
 
 public class udpBaseServer_2 {
 
+    public static void main(String[] args) throws SocketException {
+        System.out.println("main being called");
+    }
+
     public JSONObject startServer() throws IOException {
         // Step 1 : Create a socket to listen at port 1234
+        System.out.println("Start being called");
+
         DatagramSocket ds = new DatagramSocket(1234);
+        ds.setReuseAddress(true);
         byte[] receive = new byte[65535];
+
         DatagramPacket DpReceive = null;
-        while (true) {
+        DpReceive = new DatagramPacket(receive, receive.length);
 
-            // Step 2 : create a DatgramPacket to receive the data.
-            DpReceive = new DatagramPacket(receive, receive.length);
+        // Step 3 : revieve the data in byte buffer.
+        ds.receive(DpReceive);
+        System.out.println("Client:-" + data(receive));
 
-            // Step 3 : revieve the data in byte buffer.
-            ds.receive(DpReceive);
+        JSONObject json = new JSONObject();
+        String data = data(receive).toString();
 
-            System.out.println("Client:-" + data(receive));
-            JSONObject json = new JSONObject();
-            String data = data(receive).toString();
-
-            json.put("data", data);
-
-            // Exit the server if the client sends "bye"
-            if (data(receive).toString().equals("bye")) {
-                System.out.println("Client sent bye.....EXITING");
-                break;
-            }
-
-            if (data != null && data.length() > 0) {
-                return json;
-            }
-
-        }
-        return null;
+        json.put("data", data);
+        receive = new byte[65535];
+        ds.close();
+        return json;
     }
 
     // A utility method to convert the byte array
@@ -55,5 +49,4 @@ public class udpBaseServer_2 {
         }
         return ret;
     }
-
 }

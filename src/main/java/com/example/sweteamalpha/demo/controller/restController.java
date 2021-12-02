@@ -49,6 +49,7 @@ public class restController {
             List<player> players = new ArrayList<player>();
             udpBaseClient_2.main(null);
             return new ResponseEntity<>(players, HttpStatus.OK);
+
         }
 
         catch (Exception e) {

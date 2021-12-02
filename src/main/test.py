@@ -5,7 +5,6 @@ import time
 bufferSize  = 1024
 serverAddressPort   = ("127.0.0.1", 1234)
 
-
 print('this program will generate some test traffic for 2 players on the red ')
 print('team as well as 2 players on the green team')
 print('')
@@ -43,6 +42,5 @@ while i < int(counter):
 	i+=1;
 	UDPClientSocketTransmit.sendto(str.encode(str(message)), serverAddressPort)
 	time.sleep(random.randint(1,3))
-UDPClientSocketTransmit.sendto(str.encode(str('bye')), serverAddressPort)
 
 print("program complete")

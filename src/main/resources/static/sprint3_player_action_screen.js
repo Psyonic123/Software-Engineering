@@ -38,20 +38,45 @@ async function fetchAsync(url) {
   let data = await response.json();
   return data;
 }
-function getTaggedPlayers() {
-  var playerName = document.getElementById("playerName");
-  var playerID = document.getElementById("playerID");
 
-  let URL_get = "http://localhost:8080/api/startServer";
-  //let URL_get = "https://sweteamalpha.herokuapp.com/api/getPlayer/" + playerID.value;
-  console.log(URL_get);
-  fetchAsync(URL_get)
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => {
-      console.log(error);
+document.addEventListener("DOMContentLoaded", async () => {
+  while (true) {
+    try {
+      var url = "http://localhost:8080/api/startServer";
+      const response = await fetch(url, {
+        mode: "no-cors",
+      });
+      var players = await response.json();
+      console.log(players);
+    } catch (e) {
+      console.log(e);
+    }
+    var playersArray = players.data.toString().split(":");
+    console.log(playersArray);
+
+    tagURL = "http://localhost:8080/api/getPlayer/" + playersArray[0];
+    const player1 = await fetch(tagURL, {
+      mode: "no-cors",
     });
-}
+    //get first player
+    var tagger = await player1.json();
+    var taggerJSON = JSON.stringify(tagger);
+    taggerJSON = JSON.parse(taggerJSON);
+    console.log(taggerJSON);
 
-getTaggedPlayers();
+    // get second player
+    tagURL2 = "http://localhost:8080/api/getPlayer/" + playersArray[1];
+    const player2 = await fetch(tagURL2, {
+      mode: "no-cors",
+    });
+    var tagee = await player2.json();
+    var tageeJSON = JSON.stringify(tagee);
+    tageeJSON = JSON.parse(tageeJSON);
+    console.log(tageeJSON);
+
+    var actionTable = document.getElementById("actionDisplayTable");
+    var actionRow = actionTable.insertRow();
+    var cell = actionRow.insertCell();
+    cell.innerHTML = taggerJSON.codeName + " hit " + tageeJSON.codeName;
+  }
+});
