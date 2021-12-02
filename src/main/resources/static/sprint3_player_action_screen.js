@@ -74,9 +74,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     tageeJSON = JSON.parse(tageeJSON);
     console.log(tageeJSON);
 
-    var actionTable = document.getElementById("actionDisplayTable");
-    var actionRow = actionTable.insertRow();
-    var cell = actionRow.insertCell();
-    cell.innerHTML = taggerJSON.codeName + " hit " + tageeJSON.codeName;
+    // var actionTable = document.getElementById("actionDisplayTable");
+    // var actionRow = actionTable.insertRow();
+    // var cell = actionRow.insertCell();
+    // cell.innerHTML = taggerJSON.codeName + " hit " + tageeJSON.codeName;
+
+    
+
+    //printing whom hit whom
+    document.getElementById("actionDisplayStringValues").innerHTML = taggerJSON.codeName + " laser'd " + tageeJSON.codeName + "<br><br>" + document.getElementById("actionDisplayStringValues").innerHTML;
+
   }
 });
