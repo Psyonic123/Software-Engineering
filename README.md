@@ -1,14 +1,16 @@
 # SWE-Assignment1
 TEAM ALPHA BABY WOOO (team 5 of course)!!!!
 
-The best way to test the application would be to use the link: https://sweteamalpha.herokuapp.com/
+In order to run this amazing project:
+1. Must download the project and be able to run both Java and Python code.
+2. Once downloaded, locate `DemoApplication.java` in `src/main/java/com/example/sweteamalpha/demo/`
+3. Run Java on `DemoApplication.java` 🔥 (We usually do this using a Java debugger on Visual Studio Code.
+4. This application will be put onto `localhost:8080` and you should connect to it through a browser (all testing done on chrome 😝)
+5. Once on player-entry screen, enter IDs (please remember those IDs for the generator as it's not automatic 😭)
+6. Pressing enter will send you to the action screen where things go down 🤯
+7. Now while action screen is on, go the downloaded code and run the python generator `test.py` which is located in `src/main/`. This will make you enter the IDs on each team and number of events that will occur. Make this a large number to simulate a long game where the action doesn't stop 💯
+8. This should now simulate a game using UDP sockets with the scores changing 😄
 
-If you REALLY wanted to run the code on your machine (boooo), you could either:
-1. Use the branch called 'Main-Localhost' and run main in "DemoApplication.java". We usually do this by using Visual Studio Code and running a Java debugger in main.
-
-2. Manually change the URL_get/set links to localhost and comment out those linking to the heroku app. There's four links inside 'sprint-2-frontend-player-entry.js' that need to be changed and also change '@CrossOrigin(origins = "https://sweteamalpha.herokuapp.com/")' to '@CrossOrigin(origins = "http://localhost:8080")'. Once those links are set correctly, you just run the debugger on main just like the first option.
-
-Once you run the debugger on main, you can connect to the application using 'localhost:8080' in your browser (CHROME WOO). From there, you can do whatever you want (except SQL injection).
 
 Note: If you want to transition from the player-screen to the action-screen, one must press the "Enter" key.
 
