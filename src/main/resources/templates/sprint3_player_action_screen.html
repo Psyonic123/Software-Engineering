@@ -54,7 +54,7 @@
 
 	<div class="red-player-table" id="mydata">
 		<div id="mydata">
-			<b> Red Player Scores </b>
+			<b> Red Team Score: </b><span id = "rEdpLayersCore"> 0 </span>
 			<p>
 			<table id="redTable" border="1" cellpadding="5" align="center">
 				<tr>
@@ -68,7 +68,7 @@
 
 	<div class="green-player-table" id="mydatagreen">
 		<div id="mydatagreen">
-			<b> Green Player Scores </b>
+			<b> Green Team Score: </b><span id = "gReenpLayersCore"> 0 </span>
 			<p>
 			<table id="greenTable" border="1" cellpadding="5" align="center">
 				<tr>
@@ -76,6 +76,7 @@
 					<td style = "width: 10%" align = "center" ><b>ID</b></td>
 					<td style = "width: 15%" align = "center" ><b>Score</b></td>
 				</tr>
+				
 			</table>
 		</div>
 	</div>
@@ -88,15 +89,11 @@
     
 	</div>
 	</div>
-	<div class="play-action-display" id="play-action-display">
+	<div class="play-action-display" id="play-action-display" >
 		<div id="play-action-display">
-			<b> Action Display </b>
-			<p>
-			<table id="actionDisplayTable" border="1" cellpadding="5" align="center">
-				<tr>
-					<td style = "width: 40%" align = "center" ><b>Events</b></td>
-				</tr>
-			</table>
+			<b> Action Display Events </b>
+			<span style="display: block;margin-bottom: 0.5em;"></span> 
+			<div style= "height: 160px; width: 500px; overflow: auto; padding: 1px; line-height: 0.7em;" class="actionDisplayStringValues" id="actionDisplayStringValues" > </div>
 		</div>
 	</div>
 	

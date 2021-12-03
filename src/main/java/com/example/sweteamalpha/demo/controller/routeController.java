@@ -4,10 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.stereotype.Controller;
-import org.yaml.snakeyaml.events.Event;
-
-
 // Serving our static web pages
 @Controller
 public class routeController {
@@ -18,6 +14,7 @@ public class routeController {
         model.addAttribute("appName", appName);
         return "splash_screen";
     }
+
     @GetMapping("/sprint-2-frontend-player-entry.html")
     public String playerEntry(Model model) {
         model.addAttribute("appName", appName);
@@ -29,5 +26,4 @@ public class routeController {
         model.addAttribute("appName", appName);
         return "sprint3_player_action_screen";
     }
-
 }
