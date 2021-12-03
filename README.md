@@ -4,7 +4,7 @@ TEAM ALPHA BABY WOOO (team 5 of course)!!!!
 In order to run this amazing project:
 1. Must download the project and be able to run both Java and Python code.
 2. Once downloaded, locate `DemoApplication.java` in `src/main/java/com/example/sweteamalpha/demo/`
-3. Run Java on `DemoApplication.java` 🔥 (We usually do this using a Java debugger on Visual Studio Code.
+3. Run Java on `DemoApplication.java` 🔥 (We usually do this using a Java debugger on Visual Studio Code).
 4. This application will be put onto `localhost:8080` and you should connect to it through a browser (all testing done on chrome 😝)
 5. Once on player-entry screen, enter IDs (please remember those IDs for the generator as it's not automatic 😭)
 6. Pressing enter will send you to the action screen where things go down 🤯
